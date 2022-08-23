@@ -133,11 +133,11 @@ class _talabatyState extends State<talabaty> {
                     children: [
                       random(
                           "زرزور",
-                          "https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=2000"
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Wbvermj92gElygU8IU7_brGqqas0fkWacw&usqp=CAU",
                       ),
                       random(
                           "برجرات",
-                          "https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2022-03/plant-based-food-mc-220323-02-273c7b.jpg"
+                        "https://media-cdn.tripadvisor.com/media/photo-s/1b/76/44/4a/wings-de-poulet-sauce.jpg",
                       ),
                       random(
                           "عروس دمشق",
