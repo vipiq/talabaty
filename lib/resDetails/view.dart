@@ -62,9 +62,9 @@ class _resDetailsState extends State<resDetails> {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(15),
                           boxShadow: [BoxShadow(
-                              color: Colors.white.withOpacity(0.5),
-                              spreadRadius: 5,
-                              blurRadius: 40,
+                              color: Colors.white.withOpacity(0.3),
+                              spreadRadius: 2,
+                              blurRadius: 20,
                               offset: Offset(3, 3)
                           )]
                       ),

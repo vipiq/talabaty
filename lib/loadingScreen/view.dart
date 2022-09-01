@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talabaty/auth/view.dart';
 import 'package:talabaty/talabaty/talabaty.dart';
 
 class Loading extends StatefulWidget {
@@ -12,7 +13,7 @@ class _LoadingState extends State<Loading> {
 
   Future Delay() async {
     await new Future.delayed(Duration(seconds: 4), (){
-      Navigator.push(context, MaterialPageRoute(builder: (builder) => talabaty()));
+      Navigator.push(context, MaterialPageRoute(builder: (builder) => auth()));
     });
   }
 

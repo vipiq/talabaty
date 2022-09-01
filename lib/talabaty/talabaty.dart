@@ -4,13 +4,156 @@ import 'package:talabaty/resDetails/view.dart';
 
 
 class talabaty extends StatefulWidget {
-  const talabaty({Key? key}) : super(key: key);
   @override
   State<talabaty> createState() => _talabatyState();
 
 }
 
 class _talabatyState extends State<talabaty> {
+  int index = 0;
+  List topScrollImages = [
+    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png",
+    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png",
+  ];
+  List topScrollColor = [
+    Colors.red,
+    Colors.greenAccent,
+    Colors.blue,
+    Colors.deepPurple,
+    Colors.pinkAccent,
+    Colors.deepOrange,
+    Colors.orangeAccent,
+    Colors.tealAccent,
+    Colors.redAccent,
+    Colors.lightBlue,
+    Colors.deepOrange,
+  ];
+  List topScrollText = [
+    "المطاعم",
+    "بلوشي",
+    "دايت فود",
+    "حلويات ومعجنات",
+    "الفواكه والخضراوات",
+    "اللحوم",
+    "البحرية",
+    "البن والقهوة",
+    "بطاقات التعبئة",
+    "المرطبات",
+    "مكملات غذائية",
+  ];
+
+  List centerScrollImage =[
+    "https://media.istockphoto.com/photos/burger-on-a-red-gradient-background-picture-id1134613434?k=20&m=1134613434&s=170667a&w=0&h=T3tKq6Kcw9BtUR-JilglKI2I56Dyc_N9SeivdnCo3Ec=",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Wbvermj92gElygU8IU7_brGqqas0fkWacw&usqp=CAU",
+    "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqJIazjIu6JxrOYQQsk7_PV1QyMqpejCzu_g&usqp=CAU",
+  ];
+  List centerScrollName =[
+    "برجرات",
+    "زرزور",
+    "عروس دمشق",
+    "برجر ميكيرز",
+  ];
+  List centerScrollLocation =[
+    "المنصور",
+    "رمضان 14",
+    "المنصور",
+    "المنصور",
+  ];
+  List centerScrollFood =[
+    "سندويش فيلية الدجاج",
+    "قوزي لحم",
+    "سندويش فيلية الدجاج",
+    "بركر بالجبن",
+  ];
+  List centerScrollPrice =[
+    6500,
+    15000,
+    6500,
+    4500
+  ];
+  List centerScrollDeleverPrice =[
+    2500,
+    3000,
+    2500,
+    2500,
+  ];
+  List centerScrollState =[
+    "جيد",
+    "ممتاز",
+    "جيد",
+    "جيد",
+  ];
+
+  List typesScrollName = [
+    "حصري",
+    "توصيل مجاني",
+    "توصيل طلباتي",
+    "يدعم المحفضة",
+    "خصومات",
+    "الكل",
+  ];
+  List typesScrollIcon = [
+    Icons.calendar_month_outlined,
+    Icons.card_giftcard_outlined,
+    Icons.moped_outlined,
+    Icons.account_balance_wallet_outlined,
+    Icons.discount_outlined,
+    Icons.home_outlined,
+  ];
+  List<Resturant> resList = [
+    Resturant(
+      name: "هايزن",
+      imageUrl:  "https://media-cdn.tripadvisor.com/media/photo-s/1b/76/44/4a/wings-de-poulet-sauce.jpg",
+      food: "كنتاكي",
+      location: "الاعظمية",
+      state: "جيد",
+      deleverPrice: 2000,
+      price: 12000
+    ),
+    Resturant(
+        name:  "رويال كالكسي",
+        imageUrl:  "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2022%2F04%2F13%2FCataplana-Portugese-Fish-Stew-FT-RECIPE0522.jpg",
+        food: "قوزي لحم",
+        location: "رمضان 14",
+        state: "ممتاز",
+        deleverPrice: 3000,
+        price: 15000
+    ),
+    Resturant(
+        name:  "برجرات",
+        imageUrl:  "https://d18mqtxkrsjgmh.cloudfront.net/public/styles/header_image/public/2021-03/Eating%20More%20Ultraprocessed%20‘Junk’%20Food%20Linked%20to%20Higher%20CVD%20Risk.jpeg?itok=zmNGCySB",
+        food: "سندويش فيلية الدجاج",
+        location:  "المنصور",
+        state: "جيد",
+        deleverPrice: 2500,
+        price: 6500
+    ),
+
+    Resturant(
+        name: "خان مندي",
+        imageUrl:  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNkbvSwNAvBLqUAiPng-jzTFqO0cfgu_NyQQ&usqp=CAU",
+        food: "مندي الخان",
+        location: "الكرادة",
+        state: "جيد",
+        deleverPrice: 2000,
+        price: 10000
+    ),
+
+    Resturant(
+        name: "اهواك",
+        imageUrl:  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Wbvermj92gElygU8IU7_brGqqas0fkWacw&usqp=CAU",
+        food:  "مندي",
+        location: "زيونة",
+        state:  "جيد جداً",
+        deleverPrice: 1500,
+        price: 5000
+    ),
+
+  ];
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,77 +183,28 @@ class _talabatyState extends State<talabaty> {
       body:
       Column(
         children: [
+          // main horizental scrolling
           Container(
             height: 155,
-            margin: EdgeInsets.only(top: 10),
-            child: ListView(
+            child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              children: [
-                sections(
-                  Colors.red,
-                  "المطاعم",
-                  "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-                sections(
-                    Colors.greenAccent,
-                    "بلوشي",
-                    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-                sections(
-                    Colors.blue,
-                    "دايت فود",
-                    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-                sections(
-                    Colors.deepPurple,
-                    "حلويات ومعجنات",
-                    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-                sections(
-                    Colors.pinkAccent,
-                    "الفواكه والخضراوات",
-                    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-                sections(
-                    Colors.deepOrange,
-                    "اللحوم",
-                    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-                sections(
-                    Colors.orangeAccent,
-                    "البحرية",
-                    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-                sections(
-                    Colors.tealAccent,
-                    "البن والقهوة",
-                    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-                sections(
-                    Colors.redAccent,
-                    "بطاقات التعبئة",
-                    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-                sections(
-                    Colors.lightBlue,
-                    "المرطبات",
-                    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-                sections(
-                    Colors.deepOrange,
-                    "مكملات غذائية",
-                    "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
-                ),
-
-              ],
-            ),
+              itemCount: 11,
+                itemBuilder: (BuildContext context, int index) {
+              return sections(
+                          topScrollColor[index],
+                          topScrollText[index],
+                          "https://www.freepnglogos.com/uploads/food-png/food-grass-fed-beef-foodservice-products-grass-run-farms-4.png"
+                        );
+            }),
           ),
+          // list view under main
           Container(
             height: 553,
             margin: EdgeInsets.only(top:15),
             child: ListView(
               scrollDirection: Axis.vertical,
               children: [
+                // title scrolling page
                 Padding(padding: EdgeInsets.only(bottom: 10,),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
@@ -127,128 +221,39 @@ class _talabatyState extends State<talabaty> {
                     ],
                   ),
                 ),
+                // res scrolling horizantal
                 Container(
                   height: 192,
-                  child: ListView(
+                  child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    children: [
-                      random(
-                        "برجرات",
-                        "https://media.istockphoto.com/photos/burger-on-a-red-gradient-background-picture-id1134613434?k=20&m=1134613434&s=170667a&w=0&h=T3tKq6Kcw9BtUR-JilglKI2I56Dyc_N9SeivdnCo3Ec=",
-                          2500,
-                          "المنصور",
-                          "جيد",
-                          "سندويش فيلية الدجاج",
-                          6500
-                      ),
-                      random(
-                          "زرزور",
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Wbvermj92gElygU8IU7_brGqqas0fkWacw&usqp=CAU",
-                          3000,
-                          "رمضان 14",
-                          "ممتاز",
-                          "قوزي لحم",
-                          15000
-                      ),
-                      random(
-                          "عروس دمشق",
-                          "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NHx8fGVufDB8fHx8&w=1000&q=80",
-                          2500,
-                          "المنصور",
-                          "جيد",
-                          "سندويش فيلية الدجاج",
-                          6500
-                      ),
-                      random(
-                          "برجر ميكيرز",
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqJIazjIu6JxrOYQQsk7_PV1QyMqpejCzu_g&usqp=CAU",
-                          2500,
-                          "المنصور",
-                          "جيد",
-                          "بركر بالجبن",
-                          4500
-                      )
-                    ],
+                    itemCount: 4,
+                    itemBuilder: (BuildContext context, int index){
+                      return random(
+                          centerScrollName[index],
+                          centerScrollImage[index],
+                          centerScrollDeleverPrice[index],
+                          centerScrollLocation[index],
+                          centerScrollState[index],
+                          centerScrollFood[index],
+                          centerScrollPrice[index]
+                      );
+                    },
                   ),
                 ),
+                // types scrolling
                 Container(
                   height: 40,
                   margin: EdgeInsets.symmetric(vertical: 10),
-                  child: ListView(
+                  child: ListView.builder(
                     scrollDirection: Axis.horizontal,
-                    children: [
-                      types(
-                        "حصري",
-                        Icons.calendar_month_outlined,
-                      ),
-                      types(
-                        "توصيل مجاني",
-                        Icons.card_giftcard_outlined,
-                      ),
-                      types(
-                        "توصيل طلباتي",
-                        Icons.moped_outlined,
-                      ),
-                      types(
-                        "يدعم المحفضة",
-                        Icons.account_balance_wallet_outlined,
-                      ),
-                      types(
-                        "خصومات",
-                        Icons.discount_outlined,
-                      ),
-                      types(
-                        "الكل",
-                        Icons.home_outlined,
-                      ),
-                    ],
+                    itemCount: 6,
+                    itemBuilder: (BuildContext contex, int index){
+                      return types(typesScrollName[index], typesScrollIcon[index]);
+                    },
                   ),
                 ),
-                more(
-                  "هايزن",
-                  "https://media-cdn.tripadvisor.com/media/photo-s/1b/76/44/4a/wings-de-poulet-sauce.jpg",
-                    2000,
-                    "الاعظمية",
-                    "جيد",
-                  "كنتاكي",
-                  12000
-                ),
-                more(
-                  "رويال كالكسي",
-                  "https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F9%2F2022%2F04%2F13%2FCataplana-Portugese-Fish-Stew-FT-RECIPE0522.jpg",
-                  3000,
-                  "رمضان 14",
-                  "ممتاز",
-                    "قوزي لحم",
-                  15000
-                ),
-                more(
-                  "برجرات",
-                  "https://d18mqtxkrsjgmh.cloudfront.net/public/styles/header_image/public/2021-03/Eating%20More%20Ultraprocessed%20‘Junk’%20Food%20Linked%20to%20Higher%20CVD%20Risk.jpeg?itok=zmNGCySB",
-                  2500,
-                  "المنصور",
-                  "جيد",
-                    "سندويش فيلية الدجاج",
-                    6500
-                ),
-                more(
-                  "خان مندي",
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNkbvSwNAvBLqUAiPng-jzTFqO0cfgu_NyQQ&usqp=CAU",
-                  2000,
-                  "الكرادة",
-                  "جيد",
-                    "مندي الخان",
-                    10000
-                ),
-                more(
-                  "اهواك",
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7Wbvermj92gElygU8IU7_brGqqas0fkWacw&usqp=CAU",
-                    1500,
-                  "زيونة",
-                  "جيد جداً",
-                  "مندي",
-                  5000
-                ),
+                // list map of resturant
+                ...resList.map((res) => more(res.name, res.imageUrl, res.deleverPrice, res.location, res.state, res.food, res.price)),
               ],
             ),
           ),
@@ -296,7 +301,7 @@ class _talabatyState extends State<talabaty> {
             child: Column(
               children: [
                 Icon(Icons.home_sharp, size: 40, color: Colors.red),
-                Text("الرئيسية", style: TextStyle(color: Colors.black87, fontWeight: FontWeight.bold, fontFamily: 'noto'),)
+                Text("الرئيسية", style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold, fontFamily: 'noto',),)
               ],
             ),
           )
@@ -514,4 +519,26 @@ class _talabatyState extends State<talabaty> {
     );
   }
 
+}
+
+
+
+class Resturant{
+  String name;
+  String imageUrl;
+  String food;
+  String location;
+  String state;
+  int deleverPrice;
+  int price;
+
+  Resturant({
+    required this.name,
+    required this.imageUrl,
+    required this.food,
+    required this.location,
+    required this.state,
+    required this.deleverPrice,
+    required this.price
+  });
 }
